@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Kabir Abdullahi - Personal Website</title>
+    <meta name="description" content="Portfolio of Muhammad Kabir Abdullahi, Software Engineer, GenAI, web developer, and open-source contributor. View projects, skills, and contact information.">
+    <meta name="keywords" content="Muhammad Kabir Abdullahi, Software Engineer, Portfolio, GitHub, Web Developer, Open Source, CV">
+    <meta name="author" content="Muhammad Kabir Abdullahi">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,14 +15,14 @@
         <div class="nav-content">
             <div class="logo">MKA</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" tabindex="0">Home</a></li>
+                <li><a href="#about" tabindex="0">About</a></li>
+                <li><a href="#projects" tabindex="0">Projects</a></li>
+                <li><a href="#skills" tabindex="0">Skills</a></li>
+                <li><a href="#contact" tabindex="0">Contact</a></li>
                 <li>
-                    <button class="theme-toggle" aria-label="Toggle theme">
-                        <i class="fas fa-moon"></i>
+                    <button class="theme-toggle" aria-label="Toggle theme" tabindex="0">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
                     </button>
                 </li>
             </ul>
@@ -33,6 +36,7 @@
             <div class="cta-buttons">
                 <a href="#contact" class="cta-primary">Get in Touch</a>
                 <a href="#projects" class="cta-secondary">View My Work</a>
+                <a href="MUHAMMAD KABIR ABDULLAHI.pdf" class="cta-secondary" download>Download CV</a>
             </div>
         </div>
     </section>
@@ -41,27 +45,47 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>[Your professional summary and background here]</p>
+                <p>
+                    Software Engineer passionate about building impactful solutions. Active contributor on <a href="https://github.com/mkabdullahi" target="_blank">GitHub</a> with experience in web development, automation, and open-source projects. Skilled in JavaScript, Python, React, and modern frameworks. Dedicated to continuous learning and delivering high-quality code.
+                </p>
             </div>
         </div>
     </section>
 
     <section id="projects" class="projects">
         <h2>Projects</h2>
-        <div class="projects-grid">
-            <!-- Project cards will go here -->
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Project description goes here</p>
-            </div>
-            <!-- Add more project cards as needed -->
+        <div class="projects-grid" id="github-projects">
+            <div class="loading-projects">Loading projects from GitHub...</div>
         </div>
     </section>
 
     <section id="skills" class="skills">
         <h2>Skills</h2>
         <div class="skills-grid">
-            <!-- Add your skills here -->
+            <div class="skill-card">
+                <i class="fab fa-js-square" aria-label="JavaScript"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python" aria-label="Python"></i>
+                <span>Python</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-react" aria-label="React"></i>
+                <span>React</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-node" aria-label="Node.js"></i>
+                <span>Node.js</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-git-alt" aria-label="Git"></i>
+                <span>Git</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-linux" aria-label="Linux"></i>
+                <span>Linux</span>
+            </div>
         </div>
     </section>
 
@@ -70,15 +94,15 @@
         <div class="contact-content">
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" aria-label="Email"></i>
                     <a href="mailto:mkabiru.abd@gmail.com">mkabiru.abd@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-linkedin" aria-label="LinkedIn"></i>
                     <a href="https://www.linkedin.com/in/mkabdullahi/" target="_blank">LinkedIn</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-github"></i>
+                    <i class="fab fa-github" aria-label="GitHub"></i>
                     <a href="https://github.com/mkabdullahi" target="_blank">GitHub</a>
                 </div>
             </div>

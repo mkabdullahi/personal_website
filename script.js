@@ -61,4 +61,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize theme on page load
     initializeTheme();
+
+    // Load GitHub projects dynamically
+    function loadGitHubProjects() {
+        const projectsGrid = document.getElementById('github-projects');
+        fetch('https://api.github.com/users/mkabdullahi/repos?sort=updated')
+            .then(response => response.json())
+            .then(repos => {
+                projectsGrid.innerHTML = '';
+                const topRepos = repos.slice(0, 6);
+                for (const repo of topRepos) {
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.innerHTML = `
+                        <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                        <p>${repo.description || 'No description provided.'}</p>
+                    `;
+                    projectsGrid.appendChild(card);
+                }
+            })
+            .catch(() => {
+                projectsGrid.innerHTML = '<div class="error">Unable to load projects from GitHub.</div>';
+            });
+    }
+    loadGitHubProjects();
 });
