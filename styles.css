@@ -418,8 +418,8 @@ body.dark-mode .contact-item a:hover {
 }
 
 .avatar {
-    width: 44px;           /* perfect size for nav */
-    height: 44px;
+    width: 47px;           /* perfect size for nav */
+    height: 47px;
     border-radius: 50%;     /* perfect circle */
     object-fit: cover;
     border: 3px solid var(--primary-color);
