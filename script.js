@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Theme toggle functionality
     const themeToggle = document.querySelector('.theme-toggle');
-    const prefersDarkScheme = globalThis.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDarkScheme = globalThis.matchMedia('(prefers-color-scheme: light)');
 
     // Function to toggle theme
     function toggleTheme() {
