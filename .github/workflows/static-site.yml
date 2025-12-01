@@ -1,0 +1,39 @@
+name: Static Site CI/CD
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+jobs:
+    validate-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+
+        - name: HTML Validation
+          run: |
+            npx html-validate *.html **/*.html || echo "HTML issues found"
+
+        - name: Lint CSS
+          run: |
+            npx stylelint "**/*.css" --fix || npx stylelint "**/*.css" || echo "CSS linting issues found"
+
+        - name: Lint JavaScript
+          run: |
+            npx eslint **.js **/*.js --fix || npx eslint **.js **/*.js || echo "JavaScript linting issues found"
+        
+        - name: Minify HTML, CSS, and JS
+          if: github.ref == 'refs/heads/main' 
+          run: |
+                npm install -g html-minifier-terser uglify-js clean-css-cli
+                find . -name "*.html" -exec html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o {} {} \;
+                find . -name "*.css" -exec cleancss -o {} {} \;
+                find . -name "*.js" -exec uglifyjs {} -o {} \; 
+
+        - name: Deploy to GitHub Pages
+          if: success() && github.ref == 'refs/heads/main'
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: .
