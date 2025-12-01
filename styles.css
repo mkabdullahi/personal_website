@@ -406,6 +406,61 @@ body.dark-mode .contact-item a:hover {
     color: var(--link-hover);
 }
 
+
+/* Modern round avatar in navbar – perfect size & responsive */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.avatar {
+    width: 44px;           /* perfect size for nav */
+    height: 44px;
+    border-radius: 50%;     /* perfect circle */
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+/* Fallback initials if image fails to load */
+.avatar-fallback {
+    width: 44px;
+    height: 44px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: none;
+}
+
+/* Show fallback only if image fails */
+.avatar:not(:valid) ~ .avatar-fallback,
+.avatar[src=""] ~ .avatar-fallback,
+.avatar:error ~ .avatar-fallback {
+    display: flex;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .avatar, .avatar-fallback {
+        width: 38px;
+        height: 38px;
+    }
+}
 /* =========================
    End of File
    ========================= */
