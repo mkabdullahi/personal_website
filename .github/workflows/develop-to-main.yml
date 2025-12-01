@@ -3,6 +3,9 @@ name: Auto PR develop → main
 on:
   push:
     branches: [ develop ]
+permissions:
+  contents: write
+  pull-requests: write
 
 permissions:
   contents: read
@@ -26,4 +29,3 @@ jobs:
             Ready to go live at https://mkabdullahi.pw
           labels: automated, release
           draft: false
-          
