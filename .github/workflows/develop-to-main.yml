@@ -2,30 +2,23 @@ name: Auto PR develop → main
 
 on:
   push:
-    branches: [ develop ]
-permissions:
-  contents: write
-  pull-requests: write
+    branches: [develop]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # Merge develop → main automatically (fast-forward only, safe)
-      - name: Merge develop → main
-        run: |
-          git checkout main
-          git pull origin main
-          git merge --ff-only origin/develop
-          git push origin main
-
-      - name: Create/Update Release PR
+      - name: Create or update PR
+        id: create_pr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -37,3 +30,13 @@ jobs:
             Ready to go live at https://mkabdullahi.pw
           labels: automated, release
           draft: false
+
+      # Enable auto‑merge once the PR passes required checks
+      - name: Enable auto‑merge
+        if: steps.create_pr.outputs.pull-request-number != ''
+        uses: peter-evans/auto-merge@v2
+        with:
+          pull-request-number: ${{ steps.create_pr.outputs.pull-request-number }}
+          merge-method: squash
+          commit-title: "chore: merge develop → main"
+          commit-message: "Automated merge of develop into main"

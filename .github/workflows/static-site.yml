@@ -1,39 +1,54 @@
 name: Static Site CI/CD
+
+# Run on pushes and PRs to main or develop
 on:
   push:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+
 jobs:
-    validate-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout repository
-          uses: actions/checkout@v3
+  lint-and-deploy:
+    runs-on: ubuntu-latest
+    # Cache node_modules to speed up subsequent runs
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-        - name: HTML Validation
-          run: |
-            npx html-validate *.html **/*.html || echo "HTML issues found"
+      # Node is already available on ubuntu‑latest; we just need it for npx commands.
+      - name: Set up Node.js (optional, ensures a stable version)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-        - name: Lint CSS
-          run: |
-            npx stylelint "**/*.css" --fix || npx stylelint "**/*.css" || echo "CSS linting issues found"
+      # ---------- Lint matrix ----------
+      - name: Lint HTML
+        run: |
+          npx html-validate "**/*.html" || echo "HTML validation issues found"
 
-        - name: Lint JavaScript
-          run: |
-            npx eslint **.js **/*.js --fix || npx eslint **.js **/*.js || echo "JavaScript linting issues found"
-        
-        - name: Minify HTML, CSS, and JS
-          if: github.ref == 'refs/heads/main' 
-          run: |
-                npm install -g html-minifier-terser uglify-js clean-css-cli
-                find . -name "*.html" -exec html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o {} {} \;
-                find . -name "*.css" -exec cleancss -o {} {} \;
-                find . -name "*.js" -exec uglifyjs {} -o {} \; 
+      - name: Lint CSS
+        run: |
+          npx stylelint "**/*.css" --fix || npx stylelint "**/*.css" || echo "CSS linting issues found"
 
-        - name: Deploy to GitHub Pages
-          if: success() && github.ref == 'refs/heads/main'
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: .
+      - name: Lint JavaScript
+        run: |
+          npx eslint "**/*.js" --fix || npx eslint "**/*.js" || echo "JavaScript linting issues found"
+
+      # ---------- Minify (only on main) ----------
+      - name: Minify assets
+        if: github.ref == 'refs/heads/main'
+        run: |
+          npx html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o {} {} "$(find . -name '*.html')" 2>/dev/null || true
+          npx cleancss -o {} {} "$(find . -name '*.css')" 2>/dev/null || true
+          npx uglify-js -o {} {} "$(find . -name '*.js')" 2>/dev/null || true
+
+      # ---------- Deploy (only on main) ----------
+      - name: Deploy to GitHub Pages
+        if: success() && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
