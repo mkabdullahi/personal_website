@@ -139,6 +139,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load Recommendations Logic
     const recommendations = [
         {
+            text: `I had the privilege of working with Muhammad during his six-month, 50% occupation Generative AI Fellowship focusing on our 'missing link' problem.
+Muhammad demonstrated a strong commitment to learning a sophisticated and new environment, including Kubeflow, Kubernetes, and specialized LLM prompting techniques in Python. This rapid adaptation to a complex technical stack was a significant accomplishment during the fellowship.
+They successfully executed the core exploration goal of the project, investigating the viability of LLM usage for our specific challenge. Muhammad also showed initiative by attempting to optimize long experiment runtimes through parallelization and batch size adjustments.
+While the scope of the project was ultimately restricted by external factors (long runtimes), Muhammad is a diligent worker who delivered on the foundational goals. They are well-positioned for roles requiring quick ramp-up time in new technical domains and practical experience with structured LLM exploration.`,
+            author: "Sven-Martin Liebig",
+            role: "Senior Software Developer at SAP SE | Expert for Cloud and Machine",
+            linkedin: "https://www.linkedin.com/in/sven-martin-liebig/"
+        },
+        {
             text: "I was lucky to be Muhammad’s mentor and see him grow. He may be quiet, but he connects with people in a kind and real way. He listens, learns fast, and always wants to do better. Muhammad works hard and never gives up, no matter how tough things get. He takes feedback with a smile and turns it into action. He is smart, humble, and always curious to learn more. I truly believe he will be a great leader very soon, the one who leads with heart and care. I wish him great luck and best wishes.",
             author: "Harit Bahsin",
             role: "Senior Product Manager at SAP",
