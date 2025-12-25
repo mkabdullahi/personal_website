@@ -7,7 +7,8 @@ A responsive, single-page personal portfolio website built with HTML, CSS, and V
 - **Hero Slider**: Responsive image carousel with manual controls and auto-rotation logic.
 - **Projects Integration**: Dynamically fetches and displays GitHub repositories using the GitHub API.
 - **Recommendations Section**: Showcases testimonials with LinkedIn profile integration.
-- **Contact Form**: Functional contact form powered by [Formspree](https://formspree.io) with client-side validation.
+- **Connect Section**: Contact links for LinkedIn and GitHub.
+- **Meeting Booking**: Calendly popup integration for scheduling meetings without leaving the site.
 - **Responsive Design**: Fully optimized for mobile, tablet, and desktop devices.
 - **Theme Toggle**: Light/Dark mode support.
 
@@ -34,10 +35,9 @@ To run this project locally:
 
 ## Configuration
 
-To make the contact form work for you:
-1.  Register at [Formspree](https://formspree.io).
-2.  Create a new form and get your **Form ID**.
-3.  Update `index.html` (form action) and `script.js` (fetch URL) with your Form ID.
+To customize the meeting booking:
+1.  Update the Calendly URL in `index.html` (hero CTA button) with your actual Calendly link.
+2.  Optionally, update contact links in the Connect section with your preferred contact information.
 
 ## License
 

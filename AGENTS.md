@@ -21,6 +21,10 @@ This personal portfolio website is a static site built with vanilla HTML, CSS, a
 - Performance optimized (lazy loading where applicable)
 - SEO optimized meta tags
 
+### Recent Changes
+- **2025 Simplification**: Removed contact form and CV download button; replaced with Calendly meeting booking and streamlined Connect section with contact links only.
+- **Calendly Popup Integration**: Implemented Calendly popup widget for better user experience when booking meetings.
+
 ## Development Roadmap
 
 ### Phase 1: Immediate Improvements (High Priority)

@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Kabir Abdullahi - Personal Website</title>
     <meta name="description"
-        content="Portfolio of Muhammad Kabir Abdullahi, Software Engineer, GenAI, web developer, and open-source contributor. View projects, skills, and contact information.">
+        content="Portfolio of Muhammad Kabir Abdullahi, Software Engineer, GenAI, web developer, and open-source contributor. View projects and skills.">
     <meta name="keywords"
-        content="Muhammad Kabir Abdullahi, Software Engineer, Portfolio, GitHub, Web Developer, Open Source, CV, GenAI, Scrum Master, SAP Commerce Cloud, AI/ML">
+        content="Muhammad Kabir Abdullahi, Software Engineer, Portfolio, GitHub, Web Developer, Open Source, GenAI, Scrum Master, SAP Commerce Cloud, AI/ML">
     <meta name="author" content="Muhammad Kabir Abdullahi">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +29,6 @@
                 <li><a href="#about" tabindex="0">About</a></li>
                 <li><a href="#projects" tabindex="0">Projects</a></li>
                 <li><a href="#skills" tabindex="0">Skills</a></li>
-                <li><a href="#contact" tabindex="0">Contact</a></li>
                 <li>
                     <button class="theme-toggle" aria-label="Toggle theme" tabindex="0">
                         <i class="fas fa-moon" aria-hidden="true"></i>
@@ -49,12 +49,11 @@
         </div>
 
         <div class="hero-content">
-            <h1>Muhammad K. Abdullahi</h1>
-            <p class="tagline">Gen AI Engineer • Scrum Master(PSMI & II) • SAP Commerce Cloud</p>
+            <h1>Muhammad Kabir Abdullahi</h1>
+            <p class="tagline">AI Automation • n8n Flows • SAP Commerce Cloud</p>
             <div class="cta-buttons">
-                <a href="#contact" class="cta-primary">Let's Talk</a>
+                <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mkabdullahi/new-meeting'});return false;" class="cta-primary">Book a Meeting</a>
                 <a href="#projects" class="cta-secondary">View Projects</a>
-                <a href="cv/MUHAMMAD KABIR ABDULLAHI.pdf" class="cta-secondary" download>Download Résumé</a>
             </div>
         </div>
     </section>
@@ -112,12 +111,8 @@
                 <span>Python</span>
             </div>
             <div class="skill-card">
-                <i class="fas fa-brain" aria-label="AI_ML"></i>
-                <span>Generative AI/ML</span>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-react" aria-label="React"></i>
-                <span>React</span>
+                <i class="fas fa-project-diagram" aria-label="AI_Automation_and_n8n"></i>
+                <span>AI Automation and n8n</span>
             </div>
             <div class="skill-card">
                 <i class="fab fa-node" aria-label="Node.js"></i>
@@ -144,39 +139,14 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
         <div class="contact-content">
             <div class="contact-grid">
-                <!-- Left Column: Contact Form -->
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjknevoj" method="POST"
-                    novalidate>
-                    <div class="form-group">
-                        <label for="name">Name <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="5" required
-                            placeholder="How can I help you?"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                    <div id="form-feedback"></div>
-                </form>
-
-                <!-- Right Column: Contact Info -->
+                <!-- Contact Info -->
                 <div class="contact-info">
                     <h3>Connect with me</h3>
                     <p>Feel free to reach out for collaborations or just a friendly hello!</p>
 
                     <div class="contact-links">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope" aria-label="Email"></i>
-                            <a href="mailto:mkabiru.abd@gmail.com">mkabiru.abd@gmail.com</a>
-                        </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin" aria-label="LinkedIn"></i>
                             <a href="https://www.linkedin.com/in/mkabdullahi/" target="_blank">LinkedIn</a>
@@ -196,6 +166,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 
 </html>
