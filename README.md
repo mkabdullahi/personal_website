@@ -1,16 +1,18 @@
-# Portfolio Website - Muhammad Kabir Abdullahi
+# n8n AI Automation Freelancer Website - Muhammad Kabir Abdullahi
 
-A responsive, single-page personal portfolio website built with HTML, CSS, and Vanilla JavaScript.
+A responsive, single-page freelancer website built with HTML, CSS, and Vanilla JavaScript, specializing in n8n low-code workflow automation and AI-powered solutions.
 
 ## Features
 
-- **Hero Slider**: Responsive image carousel with manual controls and auto-rotation logic.
-- **Projects Integration**: Dynamically fetches and displays GitHub repositories using the GitHub API.
-- **Recommendations Section**: Showcases testimonials with LinkedIn profile integration.
-- **Connect Section**: Contact links for LinkedIn and GitHub.
-- **Meeting Booking**: Calendly popup integration for scheduling meetings without leaving the site.
+- **Hero Carousel**: Professional image carousel showcasing background and expertise.
+- **Services Section**: Detailed service offerings for n8n workflow design, API integrations, and AI-enhanced automations with pricing.
+- **Projects Showcase**: Displays n8n workflow examples and automation case studies.
+- **Skills Overview**: n8n-specific technical skills and automation competencies.
+- **Recommendations Section**: Client testimonials and professional endorsements.
+- **Connect Section**: Direct links to LinkedIn and GitHub profiles.
+- **Meeting Booking**: Calendly popup integration for client consultations.
 - **Responsive Design**: Fully optimized for mobile, tablet, and desktop devices.
-- **Theme Toggle**: Light/Dark mode support.
+- **Theme Toggle**: Light/Dark mode support for better user experience.
 
 ## Getting Started
 

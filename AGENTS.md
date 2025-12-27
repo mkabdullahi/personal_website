@@ -1,17 +1,19 @@
-# AGENTS: Continuous Development Guide for Personal Website
+# AGENTS: Continuous Development Guide for n8n Freelancer Website
 
 ## Project Overview
 
-This personal portfolio website is a static site built with vanilla HTML, CSS, and JavaScript. It showcases Muhammad Kabir Abdullahi's professional background in Gen AI engineering, Scrum mastering, and SAP Commerce Cloud development.
+This freelancer website is a static site built with vanilla HTML, CSS, and JavaScript. It showcases Muhammad Kabir Abdullahi's expertise in n8n low-code workflow automation and AI-powered business solutions, positioning him as a freelance specialist starting January 2026.
 
 ### Current Architecture
 - **Frontend**: Pure HTML5, CSS3, ES6+ JavaScript
 - **Styling**: Custom CSS with responsive design and dark/light theme support
 - **Functionality**:
-  - Hero carousel with auto-rotation and manual controls
-  - Dynamic GitHub projects fetching via API
-  - Hardcoded recommendations display
-  - Contact form integrated with Formspree
+  - Hero carousel with professional background images
+  - Services section with n8n workflow offerings and pricing
+  - Mock n8n project showcase with automation examples
+  - n8n-specific skills highlighting automation competencies
+  - Recommendations display for social proof
+  - Calendly meeting booking integration
   - Theme toggle with localStorage persistence
 - **Deployment**: Static hosting (GitHub Pages, Netlify, etc.)
 
@@ -19,11 +21,13 @@ This personal portfolio website is a static site built with vanilla HTML, CSS, a
 - Responsive design (mobile-first approach)
 - Accessibility considerations (ARIA labels, keyboard navigation)
 - Performance optimized (lazy loading where applicable)
-- SEO optimized meta tags
+- SEO optimized meta tags for n8n freelancer discoverability
 
 ### Recent Changes
-- **2025 Simplification**: Removed contact form and CV download button; replaced with Calendly meeting booking and streamlined Connect section with contact links only.
-- **Calendly Popup Integration**: Implemented Calendly popup widget for better user experience when booking meetings.
+- **2025 Freelancer Pivot**: Transformed from general portfolio to n8n-focused freelancer site.
+- **Services Section Addition**: Added dedicated services with pricing for n8n workflow design, API integrations, and AI automations.
+- **n8n Content Focus**: Updated about, skills, and projects sections to emphasize n8n expertise and automation capabilities.
+- **Calendly Integration**: Implemented popup widget for client consultation booking.
 
 ## Development Roadmap
 
