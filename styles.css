@@ -93,6 +93,9 @@ nav {
     color: var(--link-hover);
 }
 
+.no-underline {
+    text-decoration: none;
+}
 /* =========================
    Hero Section
    ========================= */
