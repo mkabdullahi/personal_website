@@ -193,4 +193,48 @@ While the scope of the project was ultimately restricted by external factors (lo
         });
     }
 
+    // Video Modal functionality
+    const modal = document.getElementById('video-modal');
+    const modalVideo = document.getElementById('modal-video');
+    const closeModal = document.querySelector('.close-modal');
+
+    // Open modal when demo button is clicked
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('demo-btn')) {
+            e.preventDefault();
+            const videoUrl = e.target.getAttribute('data-video');
+            if (videoUrl) {
+                modalVideo.src = videoUrl;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+    });
+
+    // Close modal when X is clicked
+    closeModal.addEventListener('click', function() {
+        closeModalFunction();
+    });
+
+    // Close modal when clicking outside the modal content
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModalFunction();
+        }
+    });
+
+    // Close modal function
+    function closeModalFunction() {
+        modal.style.display = 'none';
+        modalVideo.src = ''; // Stop the video
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModalFunction();
+        }
+    });
+
 });
