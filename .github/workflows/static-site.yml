@@ -36,18 +36,6 @@ jobs:
         run: |
           npx eslint "**/*.js" --fix || npx eslint "**/*.js" || echo "JavaScript linting issues found"
 
-      # ---------- Minify (only on main) ----------
-      - name: Minify assets
-        if: github.ref == 'refs/heads/main'
-        run: |
-          npx html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o {} {} "$(find . -name '*.html')" 2>/dev/null || true
-          npx cleancss -o {} {} "$(find . -name '*.css')" 2>/dev/null || true
-          npx uglify-js -o {} {} "$(find . -name '*.js')" 2>/dev/null || true
-
-      # ---------- Deploy (only on main) ----------
-      - name: Deploy to GitHub Pages
-        if: success() && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+      # GitHub Pages deploys automatically from the main branch
+      # (Settings → Pages → Source: "Deploy from a branch"), so no
+      # separate deploy/minify step is needed here.
