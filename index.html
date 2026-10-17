@@ -54,7 +54,7 @@
             <div class="cta-buttons">
                 <a href="#contact" class="cta-primary">Let's Talk</a>
                 <a href="#projects" class="cta-secondary">View Projects</a>
-                <a href="cv/MUHAMMAD KABIR ABDULLAHI.pdf" class="cta-secondary" download>Download Résumé</a>
+
             </div>
         </div>
     </section>
@@ -63,32 +63,13 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>
-                    <strong>SAP-Certified Generative AI Developer & Advanced Scrum Master (PSM II)</strong> currently
-                    shipping production AI solutions at SAP Budapest.
-                </p>
-                <p>
-                    I build and deploy enterprise-scale LLM-powered workflows in Python (OpenAI APIs, pandas, NumPy,
-                    seaborn) that automatically classify thousands of SAP Notes and power proactive customer alerting —
-                    real production impact, not just prototypes.
-                </p>
-                <p>
-                    At the same time I deliver high-performance Angular + TypeScript frontends on SAP Commerce Cloud (20
-                    % faster load times, Cypress e2e, reusable component libraries) and lead two international squads as
-                    PSM II (+20 % velocity, –25 % issue resolution).
-                </p>
-                <p>
-                    Active contributor on <a href="https://github.com/mkabdullahi" target="_blank">GitHub</a> |
-                    Passionate about agentic AI, scalable CX platforms, and space exploration (certificate signed by ESA
-                    astronauts).
-                </p>
-                <p>
-                    <strong>Currently open to new challenges in Europe</strong> — especially roles where I can own
-                    bigger pieces of the AI + frontend stack.
-                </p>
-                <p>
-                    <em>EU Blue Card holder · Ready to relocate · Fluent in English & Portuguese</em>
-                </p>
+                <ul class="about-bullets">
+                    <li><strong>SAP-Certified AI Practitioner</strong> &amp; <strong>Advanced Scrum Master (PSM II)</strong> shipping production AI solutions at SAP Budapest.</li>
+                    <li>Built enterprise-scale LLM workflows (OpenAI APIs, pandas) that classify thousands of SAP Notes and power proactive customer alerting.</li>
+                    <li>Deliver high-performance Angular + TypeScript frontends on SAP Commerce Cloud — 20% faster load times, Cypress e2e, reusable component libraries.</li>
+                    <li>Lead two international squads as PSM II — +20% velocity, –25% issue resolution time.</li>
+                    <li><strong>Open to new challenges in Europe</strong> — EU Blue Card holder · Ready to relocate · Passionate about space exploration (certificate signed by NASA Astronaut Dr. Jeffrey Hoffman) · Fluent in English &amp; Portuguese.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -147,27 +128,6 @@
         <h2>Get in Touch</h2>
         <div class="contact-content">
             <div class="contact-grid">
-                <!-- Left Column: Contact Form -->
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjknevoj" method="POST"
-                    novalidate>
-                    <div class="form-group">
-                        <label for="name">Name <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="5" required
-                            placeholder="How can I help you?"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                    <div id="form-feedback"></div>
-                </form>
-
-                <!-- Right Column: Contact Info -->
                 <div class="contact-info">
                     <h3>Connect with me</h3>
                     <p>Feel free to reach out for collaborations or just a friendly hello!</p>
@@ -175,7 +135,8 @@
                     <div class="contact-links">
                         <div class="contact-item">
                             <i class="fas fa-envelope" aria-label="Email"></i>
-                            <a href="mailto:mkabiru.abd@gmail.com">mkabiru.abd@gmail.com</a>
+                            <a id="email-link" href="#">Loading…</a>
+                            <noscript><noscript>mkabiru.abd [at] gmail [dot] com</noscript></noscript>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin" aria-label="LinkedIn"></i>
@@ -192,7 +153,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Muhammad Kabir Abdullahi. All rights reserved.</p>
+        <p>&copy; <span id="footer-year">2025</span> Muhammad Kabir Abdullahi. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

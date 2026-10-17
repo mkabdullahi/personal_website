@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.dataset.theme = newTheme;
         localStorage.setItem('theme', newTheme);
         // Update icon
-        const icon = themeToggle.querySelector('i');
-        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        const icon = themeToggle && themeToggle.querySelector('i');
+        if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
     // Initialize theme
@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const systemTheme = prefersDarkScheme.matches ? 'dark' : 'light';
         const currentTheme = savedTheme || systemTheme;
         document.documentElement.dataset.theme = currentTheme;
-        const icon = themeToggle.querySelector('i');
-        icon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        const icon = themeToggle && themeToggle.querySelector('i');
+        if (icon) icon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
     // Event listeners
-    themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
     prefersDarkScheme.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
             document.documentElement.dataset.theme = e.matches ? 'dark' : 'light';
@@ -193,87 +193,20 @@ While the scope of the project was ultimately restricted by external factors (lo
         });
     }
 
-    // Contact Form Logic
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
+    // Bot-proof email assembled at runtime (no plaintext address in HTML;
+    // displayed masked, real address only in the assembled mailto link)
+    const emailLink = document.getElementById('email-link');
+    if (emailLink) {
+        const userPart = ['mkab', 'iru.abd'].join('');
+        const domainPart = ['gmail', 'com'].join('.');
+        const addr = userPart + '@' + domainPart;
+        emailLink.href = 'mai' + 'lto:' + addr;
+        emailLink.textContent = userPart + '[@]' + domainPart.replace('.', '[dot]');
+    }
 
-            const submitBtn = this.querySelector('.submit-btn');
-            const feedback = document.getElementById('form-feedback');
-
-            // 1. Get the form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-
-            // Custom Validation
-            if (!name.trim()) {
-                feedback.textContent = 'Please enter your name.';
-                feedback.className = 'error';
-                return;
-            }
-            if (!email.trim() || !/\S+@\S+\.\S/.test(email)) {
-                feedback.textContent = 'Please enter a valid email address.';
-                feedback.className = 'error';
-                return;
-            }
-            if (!message.trim()) {
-                feedback.textContent = 'Please enter your message.';
-                feedback.className = 'error';
-                return;
-            }
-
-            // 2. Visual feedback (loading)
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            feedback.textContent = '';
-
-            try {
-                // 3. Send to Formspree (REPLACE 'YOUR_FORM_ID' WITH ACTUAL ID)
-                // You need to register at formspree.io and get a form ID.
-                // It will look like: https://formspree.io/f/xvgzqzor (example)
-                const response = await fetch("https://formspree.io/f/xjknevoj", {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // Success
-                    feedback.textContent = 'Message sent successfully!';
-                    feedback.className = 'success';
-                    contactForm.reset();
-                } else {
-                    // Error from service
-                    const data = await response.json();
-                    if (Object.hasOwn(data, 'errors')) {
-                        feedback.textContent = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        feedback.textContent = 'Oops! There was a problem submitting your form';
-                    }
-                    feedback.className = 'error';
-                }
-            } catch (error) {
-                // Network error
-                feedback.textContent = 'Oops! There was a problem submitting your form';
-                feedback.className = 'error';
-            } finally {
-                // Reset button
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
-
-                // Clear success message after 5 seconds
-                if (feedback.className === 'success') {
-                    setTimeout(() => {
-                        feedback.textContent = '';
-                        feedback.className = '';
-                    }, 5000);
-                }
-            }
-        });
+    // Dynamic footer year
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) {
+        footerYear.textContent = String(new Date().getFullYear());
     }
 });

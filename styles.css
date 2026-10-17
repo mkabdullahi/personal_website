@@ -308,6 +308,31 @@ h2 {
     margin: 0 auto;
 }
 
+/* About bullets */
+.about-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: left;
+    line-height: 1.7;
+}
+
+.about-bullets li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.about-bullets li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 /* Recommendations */
 .recommendations-grid {
     display: grid;
@@ -424,8 +449,10 @@ h2 {
 /* Contact Grid Layout */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 0;
     align-items: start;
 }
 
