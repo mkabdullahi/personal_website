@@ -27,7 +27,7 @@ jobs:
           title: "Deploy latest portfolio updates"
           body: |
             Automated release PR from develop → main
-            Ready to go live at https://mkabdullahi.pw
+            Ready to go live at https://mkabdullahi.github.io/personal_website/
           labels: automated, release
           draft: false
 
